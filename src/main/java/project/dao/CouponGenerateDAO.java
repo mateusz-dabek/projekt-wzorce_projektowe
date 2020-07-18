@@ -53,7 +53,8 @@ public class CouponGenerateDAO {
                 couponType.setRemainNumber(couponType.getRemainNumber() - quantity);
                 couponRepository.saveAll(series);
                 couponType.setCoupons(series);
-            } else if (couponType.getRemainNumber() == 0) {
+            }
+            if (couponType.getRemainNumber() == 0) {
                 couponType.setStatus(CouponType.Status.I);
             }
             couponTypeRepository.save(couponType);
